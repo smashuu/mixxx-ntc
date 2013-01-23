@@ -107,6 +107,8 @@
 		<!-- Cuing and playback -->
 			<output> <group>[Channel1]</group> <key>cue_point</key> <status>0x90</status> <midino>0x3c</midino> <on>0x00</on> <off>0x64</off> <maximum>1.0</maximum> <minimum>0.0</minimum> </output>
 			<output> <group>[Channel2]</group> <key>cue_point</key> <status>0x90</status> <midino>0x4c</midino> <on>0x00</on> <off>0x64</off> <maximum>1.0</maximum> <minimum>0.0</minimum> </output>
+			<output> <group>[Channel1]</group> <key>play</key>      <status>0x90</status> <midino>0x3e</midino> <on>0x64</on> <off>0x00</off> <maximum>1.0</maximum> <minimum>0.1</minimum> </output>
+			<output> <group>[Channel2]</group> <key>play</key>      <status>0x90</status> <midino>0x4e</midino> <on>0x64</on> <off>0x00</off> <maximum>1.0</maximum> <minimum>0.1</minimum> </output>
 		<!-- Jog and pitch controls -->
 			<output> <group>[Channel1]</group> <key>rate</key> <status>0x90</status> <midino>0x34</midino> <on>0x64</on> <off>0x00</off> <maximum>0.05</maximum> <minimum>-0.05</minimum> </output>
 			<output> <group>[Channel2]</group> <key>rate</key> <status>0x90</status> <midino>0x43</midino> <on>0x64</on> <off>0x00</off> <maximum>0.05</maximum> <minimum>-0.05</minimum> </output>

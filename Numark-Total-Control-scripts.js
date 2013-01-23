@@ -344,13 +344,8 @@ NumarkTotalControl.play = function (channel, control, value, status, group) {
 		if (NumarkTotalControl.cueing[groupId] !== undefined) {
 			delete NumarkTotalControl.cueing[groupId];
 			engine.setValue(group, "play", 1);
-			//NumarkTotalControl.setLED(NumarkTotalControl.leds[deck]["play"], 1);
-		} else if (engine.getValue(group, "play")) {
-			engine.setValue(group, "play", 0);
-			//NumarkTotalControl.setLED(NumarkTotalControl.leds[deck]["play"], 0);
-		} else {
-			engine.setValue(group, "play", 1);
-			//NumarkTotalControl.setLED(NumarkTotalControl.leds[deck]["play"], 1);
+		} else  {
+			engine.setValue(group, "play", !engine.getValue(group, "play"));
 		}
 	}
 }
@@ -362,8 +357,10 @@ NumarkTotalControl.playFromCue = function (channel, control, value, status, grou
 		if (!engine.getValue(group, "play")) {
 			NumarkTotalControl.cueing[groupId] = true;
 		}
-		engine.setValue(group, "cue_gotoandplay", 1);
+		engine.setValue(group, "cue_gotoandstop", 1);
+		engine.setValue(group, "play", 1);
 	} else if (NumarkTotalControl.cueing[groupId] !== undefined) {
+		// Released while in cue mode
 		delete NumarkTotalControl.cueing[groupId];
 		engine.setValue(group, "cue_gotoandstop", 1);
 	}
