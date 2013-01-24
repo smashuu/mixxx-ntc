@@ -3,8 +3,9 @@ function NumarkTotalControl() {}
 NumarkTotalControl.init = function(id) {	// called when the MIDI device is opened & set up
 	NumarkTotalControl.id = id;	// Store the ID of this device for later use
 
-	/*
 	NumarkTotalControl.directoryMode = false;
+	
+	/*
 	NumarkTotalControl.scratchMode = false;
 	*/
 	NumarkTotalControl.scratchTimer = {};
@@ -87,37 +88,6 @@ NumarkTotalControl.groupString = function(group) {
 	}
 }
 
-/*
-NumarkTotalControl.groupToDeck = function(group) {
-	// Converts a string like [Channel2] or [Sampler3] into its corresponding deck: "deck1", "deck2", or "other"
-	// Used for looking up LED codes, setting status, etc
-	var matches, deck;
-	matches = group.match(/^\[(Channel|Sampler)(\d+)\]$/);
-	if (matches == null) {
-		return false; // Not a deck
-	}
-	deck = parseInt(matches[2]);
-	// If greater than 2 (i.e. sampler 3/4) translates that to deck 1 or 2
-	while (deck > 2) { deck = deck - 2; }
-	deck = "deck" + deck;
-	return deck;
-}
-NumarkTotalControl.realChannel = function(group) {
-	// Converts [ChannelX] into the real channel/sampler string depending on status; otherwise returns string unchanged
-	var matches, deck;
-	matches = group.match(/^\[(Channel)(\d+)\]$/);
-	if (matches !== null) {
-		deck = parseInt(matches[2]);
-		if (NumarkTotalControl.status.sample12) {
-			return "[Sampler" + (deck) + "]";
-		} else if (NumarkTotalControl.status.sample34) {
-			return "[Sampler" + (deck+2) + "]";
-		}
-	}
-	return group; // Unchanged group string
-}
-*/
-
 NumarkTotalControl.samplesPerBeat = function(group) {
 	var sampleRate = engine.getValue(group, "track_samplerate");
 	// FIXME: Get correct channel count for current deck
@@ -133,6 +103,25 @@ NumarkTotalControl.setLED = function(value, status) {
 		status = 0x00;
 	}
 	midi.sendShortMsg(0x90, value, status);
+}
+
+NumarkTotalControl.selectKnob = function(channel, control, value, status, group) {
+	if (value > 63) {
+		value = value - 128;
+	}
+	if (NumarkTotalControl.directoryMode) {
+		if (value > 0) {
+			for (var i = 0; i < value; i++) {
+				engine.setValue(group, "SelectNextPlaylist", 1);
+			}
+		} else {
+			for (var i = 0; i < -value; i++) {
+				engine.setValue(group, "SelectPrevPlaylist", 1);
+			}
+		}
+	} else {
+		engine.setValue(group, "SelectTrackKnob", value);
+	}
 }
 
 NumarkTotalControl.loopIn = function(channel, control, value, status, group) {
@@ -453,16 +442,15 @@ NumarkTotalControl.tap = function(channel, control, value, status, group) {
 		NumarkTotalControl.setLED(NumarkTotalControl.leds[deck]["tap"], false);
 	}
 }
-
-/*
 NumarkTotalControl.toggleDirectoryMode = function(channel, control, value, status, group) {
 	// Toggle setting and light
 	if (value) {
 		NumarkTotalControl.directoryMode = !NumarkTotalControl.directoryMode;
-		NumarkTotalControl.setLED(NumarkTotalControl.leds[0]["directory"], NumarkTotalControl.directoryMode);
+		//NumarkTotalControl.setLED(NumarkTotalControl.leds[0]["directory"], NumarkTotalControl.directoryMode);
 	}
 }
 
+/*
 NumarkTotalControl.toggleScratchMode = function(channel, control, value, status, group) {
 	// Toggle setting and light
 	if (value) {
