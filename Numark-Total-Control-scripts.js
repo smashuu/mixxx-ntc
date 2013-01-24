@@ -10,7 +10,7 @@ NumarkTotalControl.init = function(id) {	// called when the MIDI device is opene
 	*/
 	NumarkTotalControl.scratchTimer = {};
 
-	NumarkTotalControl.extendedLooping = false;
+//	NumarkTotalControl.extendedLooping = false;
 	NumarkTotalControl.oldLoopStart = [-1, -1];
 	NumarkTotalControl.extendedLoopingType = { "None": 0, "SetBegin": 1, "SetLength": 2 };
 	NumarkTotalControl.extendedLoopingState = [NumarkTotalControl.extendedLoopingType.None, NumarkTotalControl.extendedLoopingType.None];
@@ -144,7 +144,7 @@ NumarkTotalControl.loopOut = function(channel, control, value, status, group) {
 				engine.setValue(group, "reloop_exit", 1);
 			} else {
 				// Loop In set -> call Loop Out
-				if (NumarkTotalControl.extendedLooping) {
+//				if (NumarkTotalControl.extendedLooping) {
 					var deck = NumarkTotalControl.groupToDeck(group);
 					if (NumarkTotalControl.oldLoopStart[deck-1] == -1) {
 						// Get current position by temporary setting loop start
@@ -152,9 +152,9 @@ NumarkTotalControl.loopOut = function(channel, control, value, status, group) {
 						engine.setValue(group, "loop_in", 1);
 						engine.beginTimer(20, "NumarkTotalControl.loopExtendedAdjustment('" + group + "')", true);
 					}
-				} else {
-					engine.setValue(group, "loop_out", 1);
-				}
+//				} else {
+//					engine.setValue(group, "loop_out", 1);
+//				}
 			}
 		}
 	}
@@ -229,9 +229,9 @@ NumarkTotalControl.loopLEDs = function(value, group, key) {
 	}
 	NumarkTotalControl.setLED(NumarkTotalControl.leds[deck]["loopOut"], status);
 	
-	if (!NumarkTotalControl.extendedLooping) {
-		status = false;
-	}
+//	if (!NumarkTotalControl.extendedLooping) {
+//		status = false;
+//	}
 	NumarkTotalControl.setLED(NumarkTotalControl.leds[deck]["loopHalve"], status);
 	NumarkTotalControl.setLED(NumarkTotalControl.leds[deck]["loopDouble"], status);
 }
@@ -259,7 +259,7 @@ NumarkTotalControl.loopLEDBlink = function(deck) {
 
 NumarkTotalControl.extendedFunctionButton = function(normalFunction, extendedLoopingFactor, extendedLoopingType, group, value) {
 	var deck = NumarkTotalControl.groupToDeck(group);
-	if (NumarkTotalControl.extendedLooping) {
+//	if (NumarkTotalControl.extendedLooping) {
 		var start = engine.getValue(group, "loop_start_position");
 		var end = engine.getValue(group, "loop_end_position");
 		if (value) {
@@ -286,13 +286,13 @@ NumarkTotalControl.extendedFunctionButton = function(normalFunction, extendedLoo
 			NumarkTotalControl.extendedLoopingChanged[deck-1] = false;
 			NumarkTotalControl.extendedLoopingJogCarryOver[deck-1] = 0;
 		}
-	} else {
-		if (value) {
-			engine.setValue(group, normalFunction, 1);
-		} else {
-			engine.setValue(group, normalFunction, 0);
-		}
-	}
+//	} else {
+//		if (value) {
+//			engine.setValue(group, normalFunction, 1);
+//		} else {
+//			engine.setValue(group, normalFunction, 0);
+//		}
+//	}
 }
 
 NumarkTotalControl.leftFunction = function(channel, control, value, status, group) {
@@ -466,7 +466,6 @@ NumarkTotalControl.toggleSimpleCue = function(channel, control, value, status, g
 		NumarkTotalControl.setLED(NumarkTotalControl.leds[0]["simpleCue"], NumarkTotalControl.simpleCue);
 	}
 }
-*/
 
 NumarkTotalControl.toggleExtendedLooping = function(channel, control, value, status, group) {
 	// Toggle setting and light
@@ -477,6 +476,7 @@ NumarkTotalControl.toggleExtendedLooping = function(channel, control, value, sta
 		NumarkTotalControl.loopLEDs(engine.getValue("[Channel2]", "loop_enabled"), "[Channel2]", "loop_enabled");
 	}
 }
+*/
 
 NumarkTotalControl.toggleQuantize = function(channel, control, value, status, group) {
 	// Toggle setting

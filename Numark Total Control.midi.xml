@@ -15,10 +15,10 @@
 			<control> <group>[Sampler2]</group> <key>NumarkTotalControl.jogWheel</key> <midino>0x01</midino> <status>0xb0</status> <options><script-binding/></options> </control>
 			<control> <group>[Sampler3]</group> <key>NumarkTotalControl.jogWheel</key> <midino>0x04</midino> <status>0xb0</status> <options><script-binding/></options> </control>
 			<control> <group>[Sampler4]</group> <key>NumarkTotalControl.jogWheel</key> <midino>0x05</midino> <status>0xb0</status> <options><script-binding/></options> </control>
-			<control> <group>[Sampler1]</group> <key>hotcue_1_activate</key> <midino>0x31</midino> <status>0x90</status> </control>
-			<control> <group>[Sampler2]</group> <key>hotcue_1_activate</key> <midino>0x32</midino> <status>0x90</status> </control>
-			<control> <group>[Sampler3]</group> <key>hotcue_1_activate</key> <midino>0x35</midino> <status>0x90</status> </control>
-			<control> <group>[Sampler4]</group> <key>hotcue_1_activate</key> <midino>0x36</midino> <status>0x90</status> </control>
+			<control> <group>[Sampler1]</group> <key>cue_default</key> <midino>0x31</midino> <status>0x90</status> </control>
+			<control> <group>[Sampler2]</group> <key>cue_default</key> <midino>0x32</midino> <status>0x90</status> </control>
+			<control> <group>[Sampler3]</group> <key>cue_default</key> <midino>0x35</midino> <status>0x90</status> </control>
+			<control> <group>[Sampler4]</group> <key>cue_default</key> <midino>0x36</midino> <status>0x90</status> </control>
 		<!-- Flanger and Tap (2nd row) -->
 			<control> <group>[Channel1]</group> <key>flanger</key>    <midino>0x39</midino> <status>0x90</status> </control>
 			<control> <group>[Channel2]</group> <key>flanger</key>    <midino>0x3D</midino> <status>0x90</status> </control>
@@ -94,10 +94,10 @@
 			<output> <group>[Channel1]</group> <key>beat_active</key> <status>0x90</status> <midino>0x37</midino> <off>0x00</off> <on>0x64</on> <maximum>1.0</maximum> <minimum>0.1</minimum> </output>
 			<output> <group>[Channel2]</group> <key>beat_active</key> <status>0x90</status> <midino>0x42</midino> <off>0x00</off> <on>0x64</on> <maximum>1.0</maximum> <minimum>0.1</minimum> </output>
 		<!-- Sampler (1st row) -->
-			<output> <group>[Sampler1]</group> <key>hotcue_1_position</key> <status>0x90</status> <midino>0x33</midino> <on>0x00</on> <off>0x64</off> <maximum>1.0</maximum> <minimum>0.0</minimum> </output>
-			<output> <group>[Sampler2]</group> <key>hotcue_1_position</key> <status>0x90</status> <midino>0x31</midino> <on>0x00</on> <off>0x64</off> <maximum>1.0</maximum> <minimum>0.0</minimum> </output>
-			<output> <group>[Sampler3]</group> <key>hotcue_1_position</key> <status>0x90</status> <midino>0x44</midino> <on>0x00</on> <off>0x64</off> <maximum>1.0</maximum> <minimum>0.0</minimum> </output>
-			<output> <group>[Sampler4]</group> <key>hotcue_1_position</key> <status>0x90</status> <midino>0x45</midino> <on>0x00</on> <off>0x64</off> <maximum>1.0</maximum> <minimum>0.0</minimum> </output>
+			<output> <group>[Sampler1]</group> <key>cue_point</key> <status>0x90</status> <midino>0x33</midino> <on>0x00</on> <off>0x64</off> <maximum>1.0</maximum> <minimum>-1.0</minimum> </output>
+			<output> <group>[Sampler2]</group> <key>cue_point</key> <status>0x90</status> <midino>0x31</midino> <on>0x00</on> <off>0x64</off> <maximum>1.0</maximum> <minimum>-1.0</minimum> </output>
+			<output> <group>[Sampler3]</group> <key>cue_point</key> <status>0x90</status> <midino>0x44</midino> <on>0x00</on> <off>0x64</off> <maximum>1.0</maximum> <minimum>-1.0</minimum> </output>
+			<output> <group>[Sampler4]</group> <key>cue_point</key> <status>0x90</status> <midino>0x45</midino> <on>0x00</on> <off>0x64</off> <maximum>1.0</maximum> <minimum>-1.0</minimum> </output>
 		<!-- Flanger (2nd row) -->
 			<output> <group>[Channel1]</group> <key>flanger</key> <status>0x90</status> <midino>0x32</midino> <on>0x00</on> <off>0x64</off> <maximum>0.1</maximum> <minimum>0.0</minimum> </output>
 			<output> <group>[Channel2]</group> <key>flanger</key> <status>0x90</status> <midino>0x46</midino> <on>0x00</on> <off>0x64</off> <maximum>0.1</maximum> <minimum>0.0</minimum> </output>
