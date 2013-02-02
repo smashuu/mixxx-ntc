@@ -4,10 +4,9 @@ NumarkTotalControl.init = function(id) {	// called when the MIDI device is opene
 	NumarkTotalControl.id = id;	// Store the ID of this device for later use
 
 	NumarkTotalControl.directoryMode = false;
-	
-	/*
-	NumarkTotalControl.scratchMode = false;
-	*/
+
+//	NumarkTotalControl.scratchMode = false;
+//	NumarkTotalControl.slipMode = false;
 	NumarkTotalControl.scratchTimer = {};
 
 //	NumarkTotalControl.extendedLooping = false;
@@ -80,7 +79,7 @@ NumarkTotalControl.groupToDeck = function(group) {
 	}
 }
 NumarkTotalControl.groupString = function(group) {
-	var matches = group.match(/^\[([^\]]]+)\]$/);
+	var matches = group.match(/^\[([^\]]+)\]$/);
 	if (matches == null) {
 		return -1;
 	} else {
@@ -408,7 +407,7 @@ NumarkTotalControl.jogWheel = function(channel, control, value, status, group) {
 		
 		adjustedJog = gammaOutputRange * adjustedJog / (gammaInputRange * maxOutFraction);
 		
-		if (engine.getValue(group,"play")) {
+		if (engine.getValue(group,"play")) {	// && !NumarkTotalControl.slipMode) {
 			//adjustedJog = gammaOutputRange * adjustedJog / (gammaInputRange * maxOutFraction);
 			NumarkTotalControl.jogWheelStopScratch(group);
 			engine.setValue(group, "jog", adjustedJog);
@@ -486,3 +485,16 @@ NumarkTotalControl.toggleQuantize = function(channel, control, value, status, gr
 		engine.setValue("[Channel2]", "quantize", newValue);
 	}
 }
+
+/*
+NumarkTotalControl.slip = function(channel, control, value, status, group) {
+	// Toggle setting
+	if (value) {
+		engine.setValue("group", "slip_enabled", 1);
+		NumarkTotalControl.slipMode = true;
+	} else {
+		engine.setValue("group", "slip_enabled", 0);
+		NumarkTotalControl.slipMode = false;
+	}
+}
+*/

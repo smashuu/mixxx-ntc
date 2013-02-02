@@ -30,8 +30,8 @@
 		<!-- PFL/Key/Sync -->	
 			<control> <group>[Channel1]</group>   <key>pfl</key>      <midino>0x30</midino> <status>0x90</status> </control>
 			<control> <group>[Channel2]</group>   <key>pfl</key>      <midino>0x37</midino> <status>0x90</status> </control>
-			<control> <group>[Channel1]</group>   <key>keylock</key>  <midino>0x38</midino> <status>0x90</status> </control>
-			<control> <group>[Channel2]</group>   <key>keylock</key>  <midino>0x3f</midino> <status>0x90</status> </control>
+			<control> <group>[Channel1]</group>   <key>reverse</key>  <midino>0x38</midino> <status>0x90</status> </control>
+			<control> <group>[Channel2]</group>   <key>reverse</key>  <midino>0x3f</midino> <status>0x90</status> </control>
 			<control> <group>[Channel1]</group>   <key>beatsync</key> <midino>0x40</midino> <status>0x90</status> </control>
 			<control> <group>[Channel2]</group>   <key>beatsync</key> <midino>0x47</midino> <status>0x90</status> </control>
 		<!-- Playlist and loading -->
@@ -89,8 +89,8 @@
 		<!-- PFL/Key/Sync -->
 			<output> <group>[Channel1]</group> <key>pfl</key> <status>0x90</status> <midino>0x35</midino> <on>0x00</on> <off>0x64</off> <maximum>0.1</maximum> <minimum>0.0</minimum> </output>
 			<output> <group>[Channel2]</group> <key>pfl</key> <status>0x90</status> <midino>0x40</midino> <on>0x00</on> <off>0x64</off> <maximum>0.1</maximum> <minimum>0.0</minimum> </output>
-			<output> <group>[Channel1]</group> <key>keylock</key> <status>0x90</status> <midino>0x36</midino> <on>0x64</on> <off>0x00</off> <maximum>1.0</maximum> <minimum>0.1</minimum> </output>
-			<output> <group>[Channel2]</group> <key>keylock</key> <status>0x90</status> <midino>0x41</midino> <on>0x64</on> <off>0x00</off> <maximum>1.0</maximum> <minimum>0.1</minimum> </output>
+			<output> <group>[Channel1]</group> <key>reverse</key> <status>0x90</status> <midino>0x36</midino> <on>0x64</on> <off>0x00</off> <maximum>1.0</maximum> <minimum>0.1</minimum> </output>
+			<output> <group>[Channel2]</group> <key>reverse</key> <status>0x90</status> <midino>0x41</midino> <on>0x64</on> <off>0x00</off> <maximum>1.0</maximum> <minimum>0.1</minimum> </output>
 			<output> <group>[Channel1]</group> <key>beat_active</key> <status>0x90</status> <midino>0x37</midino> <off>0x00</off> <on>0x64</on> <maximum>1.0</maximum> <minimum>0.1</minimum> </output>
 			<output> <group>[Channel2]</group> <key>beat_active</key> <status>0x90</status> <midino>0x42</midino> <off>0x00</off> <on>0x64</on> <maximum>1.0</maximum> <minimum>0.1</minimum> </output>
 		<!-- Sampler (1st row) -->
