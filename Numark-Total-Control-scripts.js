@@ -386,19 +386,26 @@ NumarkTotalControl.jogWheel = function(channel, control, value, status, group) {
 	 && (start != -1) && (end != -1)) {
 		// Activate alternative function SetLength
 		NumarkTotalControl.loopExtendedChange(group, false);
-		// Adjust jog speed and add remaining value from last jog change
-		adjustedJog = adjustedJog / 40 + NumarkTotalControl.extendedLoopingJogCarryOver[deck-1];
-		var beats;
-		// Round to full beats
-		if (adjustedJog > 0) {
-			beats = Math.floor(adjustedJog);
+		var beats, newEndPos;
+		if (engine.getValue(group, "quantize")) {
+			// Adjust jog speed and add remaining value from last jog change
+			adjustedJog = adjustedJog / 40 + NumarkTotalControl.extendedLoopingJogCarryOver[deck-1];
+			// Round to full beats
+			if (adjustedJog > 0) {
+				beats = Math.floor(adjustedJog);
+			} else {
+				beats = Math.ceil(adjustedJog);
+			}
+			// Save remaining value for next jog change
+			NumarkTotalControl.extendedLoopingJogCarryOver[deck-1] = adjustedJog - beats;
+			newEndPos = end + beats * NumarkTotalControl.samplesPerBeat(group);
 		} else {
-			beats = Math.ceil(adjustedJog);
+			adjustedJog *= 100;
+			NumarkTotalControl.extendedLoopingJogCarryOver[deck-1] = 0;
+			newEndPos = end + adjustedJog;
 		}
-		// Save remaining value for next jog change
-		NumarkTotalControl.extendedLoopingJogCarryOver[deck-1] = adjustedJog - beats;
 		// Set new loop end
-		engine.setValue(group, "loop_end_position", end + beats * NumarkTotalControl.samplesPerBeat(group));
+		engine.setValue(group, "loop_end_position", newEndPos);
 	} else {
 		var gammaInputRange = 64;	// Max jog speed
 		var maxOutFraction = 0.5;	// Where on the curve it should peak; 0.5 is half-way
