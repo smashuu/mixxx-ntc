@@ -191,14 +191,23 @@ NumarkTotalControl.loopIn = function(channel, control, value, status, group) {
 */
 NumarkTotalControl.loopOut = function(channel, control, value, status, group) {
 	if (value) {
-		var start = engine.getValue(group, "loop_start_position");
-		var end = engine.getValue(group, "loop_end_position");
+		//var start = engine.getValue(group, "loop_start_position");
+		//var end = engine.getValue(group, "loop_end_position");
 		if (engine.getValue(group, "loop_enabled")) {
 			// Loop In and Out set -> call Reloop/Exit
 			engine.setValue(group, "reloop_exit", 1);
 		} else {
 			engine.setValue(group, "loop_out", 1);
 		}
+	}
+}
+
+NumarkTotalControl.cuePlayRewind = function(channel, control, value, status, group) {
+	if (value) {
+		engine.setValue(group, "cue_default", 1);
+	} else {
+		engine.setValue(group, "play", 0);
+		engine.setValue(group, "cue_gotoandstop", 1);
 	}
 }
 
