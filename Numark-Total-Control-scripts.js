@@ -22,11 +22,8 @@ NumarkTotalControl.init = function(id) {	// called when the MIDI device is opene
 	];
 	
 	// Soft takeovers
-	engine.softTakeover("[Master]", "crossfader", true);
 	engine.softTakeover("[Channel1]", "rate", true);
-	engine.softTakeover("[Channel1]", "volume", true);
 	engine.softTakeover("[Channel2]", "rate", true);
-	engine.softTakeover("[Channel2]", "volume", true);
 
 	// Sampler lights
 	engine.trigger("[Sampler1]", "cue_set");
@@ -178,6 +175,28 @@ NumarkTotalControl.jogWheelStopScratch = function(group) {
 	engine.setValue(group, "scratch2_enable", 0);
 }
 
+NumarkTotalControl.rateSlider = function(channel, control, value, status, group) {
+	engine.setValue(group, "rate", (value/64)-1 );
+}
+NumarkTotalControl.selectKnob = function(channel, control, value, status, group) {
+	if (value > 63) {
+		value = value - 128;
+	}
+	engine.setValue(group, "SelectTrackKnob", value);
+}
+
+NumarkTotalControl.loopOut = function(channel, control, value, status, group) {
+	if (value) {
+		//var start = engine.getValue(group, "loop_start_position");
+		//var end = engine.getValue(group, "loop_end_position");
+		if (engine.getValue(group, "loop_enabled")) {
+			// Loop In and Out set -> call Reloop/Exit
+			engine.setValue(group, "reloop_exit", 1);
+		} else {
+			engine.setValue(group, "loop_out", 1);
+		}
+	}
+}
 /*
 NumarkTotalControl.loopIn = function(channel, control, value, status, group) {
 	if (value) {
