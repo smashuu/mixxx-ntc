@@ -1,44 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<MixxxMIDIPreset mixxxVersion="1.10.0" schemaVersion="1">
+<MixxxMIDIPreset mixxxVersion="1.12.0" schemaVersion="1">
 	<info>
 		<name>Numark Total Control</name>
 		<author>Matt Howell / David Gnedt</author>
-		<description>Optimized for Traktor label card</description>
+		<description>Experimental version for sampler/mic inputs</description>
 	</info>
 	<controller id="TotalTrack Control">
 		<scriptfiles>
 			<file filename="Numark-Total-Control-scripts.js" functionprefix="NumarkTotalControl"/>
 		</scriptfiles>
 		<controls>
-		<!-- Sampler (1st row) -->
+		<!-- Sampler (left FX bank) -->
 			<control> <group>[Sampler1]</group> <key>NumarkTotalControl.jogWheel</key> <midino>0x00</midino> <status>0xb0</status> <options><script-binding/></options> </control>
+			<control> <group>[Sampler1]</group> <key>cue_default</key>                 <midino>0x31</midino> <status>0x90</status> </control>
 			<control> <group>[Sampler2]</group> <key>NumarkTotalControl.jogWheel</key> <midino>0x01</midino> <status>0xb0</status> <options><script-binding/></options> </control>
-			<control> <group>[Sampler3]</group> <key>NumarkTotalControl.jogWheel</key> <midino>0x04</midino> <status>0xb0</status> <options><script-binding/></options> </control>
-			<control> <group>[Sampler4]</group> <key>NumarkTotalControl.jogWheel</key> <midino>0x05</midino> <status>0xb0</status> <options><script-binding/></options> </control>
-			<control> <group>[Sampler1]</group> <key>cue_default</key> <midino>0x31</midino> <status>0x90</status> </control>
-			<control> <group>[Sampler2]</group> <key>cue_default</key> <midino>0x32</midino> <status>0x90</status> </control>
-			<control> <group>[Sampler3]</group> <key>cue_default</key> <midino>0x35</midino> <status>0x90</status> </control>
-			<control> <group>[Sampler4]</group> <key>cue_default</key> <midino>0x36</midino> <status>0x90</status> </control>
-		<!-- Flanger and Tap (2nd row) -->
-			<control> <group>[Channel1]</group> <key>flanger</key>    <midino>0x39</midino> <status>0x90</status> </control>
-			<control> <group>[Channel2]</group> <key>flanger</key>    <midino>0x3D</midino> <status>0x90</status> </control>
-			<control> <group>[Flanger]</group>  <key>lfoDepth</key>   <midino>0x02</midino> <status>0xb0</status> <options><diff/></options> </control>
-			<control> <group>[Flanger]</group>  <key>lfoDelay</key>   <midino>0x03</midino> <status>0xb0</status> <options><diff/></options> </control>
-			<control> <group>[Flanger]</group>  <key>lfoPeriod</key>  <midino>0x06</midino> <status>0xb0</status> <options><diff/></options> </control>
-			<control> <group>[Channel1]</group> <key>NumarkTotalControl.tap</key> <midino>0x3a</midino> <status>0x90</status> <options><script-binding/></options> </control>
-			<control> <group>[Channel2]</group> <key>NumarkTotalControl.tap</key> <midino>0x3e</midino> <status>0x90</status> <options><script-binding/></options> </control>
+			<control> <group>[Sampler2]</group> <key>cue_default</key>                 <midino>0x32</midino> <status>0x90</status> </control>
+			<control> <group>[Sampler3]</group> <key>NumarkTotalControl.jogWheel</key> <midino>0x02</midino> <status>0xb0</status> <options><script-binding/></options> </control>
+			<control> <group>[Sampler3]</group> <key>cue_default</key>                 <midino>0x39</midino> <status>0x90</status> </control>
+			<control> <group>[Sampler4]</group> <key>NumarkTotalControl.jogWheel</key> <midino>0x03</midino> <status>0xb0</status> <options><script-binding/></options> </control>
+			<control> <group>[Sampler4]</group> <key>cue_default</key>                 <midino>0x3A</midino> <status>0x90</status> </control>
+		<!-- Mics and aux (right FX bank) -->
+			<control> <group>[Microphone]</group>  <key>volume</key>   <midino>0x04</midino> <status>0xb0</status> <options><diff/></options> </control>
+			<control> <group>[Microphone]</group>  <key>talkover</key> <midino>0x35</midino> <status>0x90</status> </control>
+			<control> <group>[Microphone2]</group> <key>volume</key>   <midino>0x05</midino> <status>0xb0</status> <options><diff/></options> </control>
+			<control> <group>[Microphone2]</group> <key>talkover</key> <midino>0x36</midino> <status>0x90</status> </control>
+			<control> <group>[Microphone3]</group> <key>volume</key>   <midino>0x06</midino> <status>0xb0</status> <options><diff/></options> </control>
+			<control> <group>[Microphone3]</group> <key>talkover</key> <midino>0x3D</midino> <status>0x90</status> </control>
 		<!-- PFL/Key/Sync -->	
-			<control> <group>[Channel1]</group>   <key>pfl</key>      <midino>0x30</midino> <status>0x90</status> </control>
-			<control> <group>[Channel2]</group>   <key>pfl</key>      <midino>0x37</midino> <status>0x90</status> </control>
-			<control> <group>[Channel1]</group>   <key>reverse</key>  <midino>0x38</midino> <status>0x90</status> </control>
-			<control> <group>[Channel2]</group>   <key>reverse</key>  <midino>0x3f</midino> <status>0x90</status> </control>
-			<control> <group>[Channel1]</group>   <key>beatsync</key> <midino>0x40</midino> <status>0x90</status> </control>
-			<control> <group>[Channel2]</group>   <key>beatsync</key> <midino>0x47</midino> <status>0x90</status> </control>
+			<control> <group>[Channel1]</group> <key>pfl</key>      <midino>0x30</midino> <status>0x90</status> </control>
+			<control> <group>[Channel2]</group> <key>pfl</key>      <midino>0x37</midino> <status>0x90</status> </control>
+			<control> <group>[Channel1]</group> <key>keylock</key>  <midino>0x38</midino> <status>0x90</status> </control>
+			<control> <group>[Channel2]</group> <key>keylock</key>  <midino>0x3f</midino> <status>0x90</status> </control>
+			<control> <group>[Channel1]</group> <key>beatsync</key> <midino>0x40</midino> <status>0x90</status> </control>
+			<control> <group>[Channel2]</group> <key>beatsync</key> <midino>0x47</midino> <status>0x90</status> </control>
 		<!-- Playlist and loading -->
-			<control> <group>[Playlist]</group> <key>NumarkTotalControl.selectKnob</key>           <midino>0x1a</midino> <status>0xb0</status> <options><script-binding/></options> </control>
-			<control> <group>[Playlist]</group> <key>NumarkTotalControl.toggleDirectoryMode</key>  <midino>0x4f</midino> <status>0x90</status> <options><script-binding/></options> </control>
-			<control> <group>[Channel1]</group> <key>LoadSelectedTrack</key>                       <midino>0x4b</midino> <status>0x90</status> </control>
-			<control> <group>[Channel2]</group> <key>LoadSelectedTrack</key>                       <midino>0x34</midino> <status>0x90</status> </control>
+			<control> <group>[Playlist]</group> <key>SelectTrackKnob</key>              <midino>0x1a</midino> <status>0xb0</status> <options><diff/></options> </control>
+			<control> <group>[Playlist]</group> <key>LoadSelectedIntoFirstStopped</key> <midino>0x4f</midino> <status>0x90</status> </control>
+			<control> <group>[Channel1]</group> <key>LoadSelectedTrack</key>            <midino>0x4b</midino> <status>0x90</status> </control>
+			<control> <group>[Channel2]</group> <key>LoadSelectedTrack</key>            <midino>0x34</midino> <status>0x90</status> </control>
 		<!-- Playback and cueing -->
 			<control> <group>[Channel1]</group> <key>NumarkTotalControl.play</key>        <midino>0x43</midino> <status>0x90</status> <options><script-binding/></options> </control>
 			<control> <group>[Channel2]</group> <key>NumarkTotalControl.play</key>        <midino>0x4c</midino> <status>0x90</status> <options><script-binding/></options> </control>
@@ -53,7 +52,6 @@
 			<control> <group>[Channel1]</group> <key>rate</key> <midino>0x0b</midino> <status>0xb0</status> </control>
 			<control> <group>[Channel2]</group> <key>rate</key> <midino>0x0c</midino> <status>0xb0</status> </control>
 		<!-- Volume, EQ, and PFL controls -->
-			<control> <group>[Microphone]</group> <key>volume</key>   <midino>0x07</midino> <status>0xb0</status> <options><Diff/></options> </control>
 			<control> <group>[Master]</group>   <key>headVolume</key> <midino>0x0f</midino> <status>0xb0</status> </control>
 			<control> <group>[Master]</group>   <key>headMix</key> <midino>0x16</midino> <status>0xb0</status> </control>
 			<control> <group>[Master]</group>   <key>volume</key>  <midino>0x17</midino> <status>0xb0</status> </control>
@@ -75,32 +73,33 @@
 			<control> <group>[Channel2]</group> <key>filterLow</key> <midino>0x15</midino> <status>0xb0</status> </control>
 		<!-- Loops -->
 			<control> <group>[Master]</group>   <key>NumarkTotalControl.toggleQuantize</key> <midino>0x48</midino> <status>0x90</status> <options><script-binding/></options> </control>
-			<control> <group>[Channel1]</group> <key>NumarkTotalControl.leftFunction</key>   <midino>0x41</midino> <status>0x90</status> <options><script-binding/></options> </control>
-			<control> <group>[Channel1]</group> <key>NumarkTotalControl.rightFunction</key>  <midino>0x42</midino> <status>0x90</status> <options><script-binding/></options> </control>
-			<control> <group>[Channel2]</group> <key>NumarkTotalControl.leftFunction</key>   <midino>0x45</midino> <status>0x90</status> <options><script-binding/></options> </control>
-			<control> <group>[Channel2]</group> <key>NumarkTotalControl.rightFunction</key>  <midino>0x46</midino> <status>0x90</status> <options><script-binding/></options> </control>
-			<control> <group>[Channel1]</group> <key>NumarkTotalControl.loopIn</key>         <midino>0x49</midino> <status>0x90</status> <options><script-binding/></options> </control>
-			<control> <group>[Channel1]</group> <key>NumarkTotalControl.loopOut</key>        <midino>0x4a</midino> <status>0x90</status> <options><script-binding/></options> </control>
-			<control> <group>[Channel2]</group> <key>NumarkTotalControl.loopIn</key>         <midino>0x4d</midino> <status>0x90</status> <options><script-binding/></options> </control>
-			<control> <group>[Channel2]</group> <key>NumarkTotalControl.loopOut</key>        <midino>0x4e</midino> <status>0x90</status> <options><script-binding/></options> </control>
+			<control> <group>[Channel1]</group> <key>loop_halve</key>                 <midino>0x41</midino> <status>0x90</status> </control>
+			<control> <group>[Channel1]</group> <key>loop_double</key>                <midino>0x42</midino> <status>0x90</status> </control>
+			<control> <group>[Channel1]</group> <key>loop_in</key>                    <midino>0x49</midino> <status>0x90</status> </control>
+			<control> <group>[Channel1]</group> <key>NumarkTotalControl.loopOut</key> <midino>0x4A</midino> <status>0x90</status> <options><script-binding/></options> </control>
+			<control> <group>[Channel2]</group> <key>loop_halve</key>                 <midino>0x45</midino> <status>0x90</status> </control>
+			<control> <group>[Channel2]</group> <key>loop_double</key>                <midino>0x46</midino> <status>0x90</status> </control>
+			<control> <group>[Channel2]</group> <key>loop_in</key>                    <midino>0x4D</midino> <status>0x90</status> </control>
+			<control> <group>[Channel2]</group> <key>NumarkTotalControl.loopOut</key> <midino>0x4E</midino> <status>0x90</status> <options><script-binding/></options> </control>
 		</controls>
 
 		<outputs>
 		<!-- PFL/Key/Sync -->
-			<output> <group>[Channel1]</group> <key>pfl</key> <status>0x90</status> <midino>0x35</midino> <on>0x00</on> <off>0x64</off> <maximum>0.1</maximum> <minimum>0.0</minimum> </output>
-			<output> <group>[Channel2]</group> <key>pfl</key> <status>0x90</status> <midino>0x40</midino> <on>0x00</on> <off>0x64</off> <maximum>0.1</maximum> <minimum>0.0</minimum> </output>
-			<output> <group>[Channel1]</group> <key>reverse</key> <status>0x90</status> <midino>0x36</midino> <on>0x64</on> <off>0x00</off> <maximum>1.0</maximum> <minimum>0.1</minimum> </output>
-			<output> <group>[Channel2]</group> <key>reverse</key> <status>0x90</status> <midino>0x41</midino> <on>0x64</on> <off>0x00</off> <maximum>1.0</maximum> <minimum>0.1</minimum> </output>
+			<output> <group>[Channel1]</group> <key>pfl</key>         <status>0x90</status> <midino>0x35</midino> <on>0x00</on> <off>0x64</off> <maximum>0.1</maximum> <minimum>0.0</minimum> </output>
+			<output> <group>[Channel1]</group> <key>keylock</key>     <status>0x90</status> <midino>0x36</midino> <on>0x64</on> <off>0x00</off> <maximum>1.0</maximum> <minimum>0.1</minimum> </output>
 			<output> <group>[Channel1]</group> <key>beat_active</key> <status>0x90</status> <midino>0x37</midino> <off>0x00</off> <on>0x64</on> <maximum>1.0</maximum> <minimum>0.1</minimum> </output>
+			<output> <group>[Channel2]</group> <key>keylock</key>     <status>0x90</status> <midino>0x41</midino> <on>0x64</on> <off>0x00</off> <maximum>1.0</maximum> <minimum>0.1</minimum> </output>
+			<output> <group>[Channel2]</group> <key>pfl</key>         <status>0x90</status> <midino>0x40</midino> <on>0x00</on> <off>0x64</off> <maximum>0.1</maximum> <minimum>0.0</minimum> </output>
 			<output> <group>[Channel2]</group> <key>beat_active</key> <status>0x90</status> <midino>0x42</midino> <off>0x00</off> <on>0x64</on> <maximum>1.0</maximum> <minimum>0.1</minimum> </output>
-		<!-- Sampler (1st row) -->
-			<output> <group>[Sampler1]</group> <key>cue_point</key> <status>0x90</status> <midino>0x33</midino> <on>0x00</on> <off>0x64</off> <maximum>1.0</maximum> <minimum>-1.0</minimum> </output>
-			<output> <group>[Sampler2]</group> <key>cue_point</key> <status>0x90</status> <midino>0x31</midino> <on>0x00</on> <off>0x64</off> <maximum>1.0</maximum> <minimum>-1.0</minimum> </output>
-			<output> <group>[Sampler3]</group> <key>cue_point</key> <status>0x90</status> <midino>0x44</midino> <on>0x00</on> <off>0x64</off> <maximum>1.0</maximum> <minimum>-1.0</minimum> </output>
-			<output> <group>[Sampler4]</group> <key>cue_point</key> <status>0x90</status> <midino>0x45</midino> <on>0x00</on> <off>0x64</off> <maximum>1.0</maximum> <minimum>-1.0</minimum> </output>
-		<!-- Flanger (2nd row) -->
-			<output> <group>[Channel1]</group> <key>flanger</key> <status>0x90</status> <midino>0x32</midino> <on>0x00</on> <off>0x64</off> <maximum>0.1</maximum> <minimum>0.0</minimum> </output>
-			<output> <group>[Channel2]</group> <key>flanger</key> <status>0x90</status> <midino>0x46</midino> <on>0x00</on> <off>0x64</off> <maximum>0.1</maximum> <minimum>0.0</minimum> </output>
+		<!-- Sampler (left FX bank) -->
+			<output> <group>[Sampler1]</group> <key>cue_point</key> <status>0x90</status> <midino>0x33</midino> <on>0x00</on> <off>0x64</off> <maximum>1.0</maximum> <minimum>0.0</minimum> </output>
+			<output> <group>[Sampler2]</group> <key>cue_point</key> <status>0x90</status> <midino>0x31</midino> <on>0x00</on> <off>0x64</off> <maximum>1.0</maximum> <minimum>0.0</minimum> </output>
+			<output> <group>[Sampler3]</group> <key>cue_point</key> <status>0x90</status> <midino>0x32</midino> <on>0x00</on> <off>0x64</off> <maximum>1.0</maximum> <minimum>0.0</minimum> </output>
+			<output> <group>[Sampler4]</group> <key>cue_point</key> <status>0x90</status> <midino>0x30</midino> <on>0x00</on> <off>0x64</off> <maximum>1.0</maximum> <minimum>0.0</minimum> </output>
+		<!-- Mics and aux (right FX bank) -->
+			<output> <group>[Microphone]</group>  <key>talkover</key> <status>0x90</status> <midino>0x44</midino> <on>0x00</on> <off>0x64</off> <maximum>0.1</maximum> <minimum>0.0</minimum> </output>
+			<output> <group>[Microphone2]</group> <key>talkover</key> <status>0x90</status> <midino>0x45</midino> <on>0x00</on> <off>0x64</off> <maximum>0.1</maximum> <minimum>0.0</minimum> </output>
+			<output> <group>[Microphone3]</group> <key>talkover</key> <status>0x90</status> <midino>0x46</midino> <on>0x00</on> <off>0x64</off> <maximum>0.1</maximum> <minimum>0.0</minimum> </output>
 		<!-- Playlist and loading -->
 			<output> <group>[Channel1]</group> <key>playposition</key> <status>0x90</status> <midino>0x3f</midino> <on>0x64</on> <off>0x00</off> <maximum>1.0</maximum> <minimum>0.75</minimum> </output>
 			<output> <group>[Channel2]</group> <key>playposition</key> <status>0x90</status> <midino>0x4f</midino> <on>0x64</on> <off>0x00</off> <maximum>1.0</maximum> <minimum>0.75</minimum> </output>
@@ -113,12 +112,17 @@
 			<output> <group>[Channel1]</group> <key>rate</key> <status>0x90</status> <midino>0x34</midino> <on>0x64</on> <off>0x00</off> <maximum>0.05</maximum> <minimum>-0.05</minimum> </output>
 			<output> <group>[Channel2]</group> <key>rate</key> <status>0x90</status> <midino>0x43</midino> <on>0x64</on> <off>0x00</off> <maximum>0.05</maximum> <minimum>-0.05</minimum> </output>
 		<!-- Equalizer -->
-			<output> <group>[Channel1]</group> <key>filterLowKill</key> <status>0x90</status> <midino>0x52</midino> <on>0x00</on> <off>0x64</off> <maximum>0.1</maximum> <minimum>0.0</minimum> </output>
-			<output> <group>[Channel1]</group> <key>filterMidKill</key> <status>0x90</status> <midino>0x51</midino> <on>0x00</on> <off>0x64</off> <maximum>0.1</maximum> <minimum>0.0</minimum> </output>
+			<output> <group>[Channel1]</group> <key>filterLowKill</key>  <status>0x90</status> <midino>0x52</midino> <on>0x00</on> <off>0x64</off> <maximum>0.1</maximum> <minimum>0.0</minimum> </output>
+			<output> <group>[Channel1]</group> <key>filterMidKill</key>  <status>0x90</status> <midino>0x51</midino> <on>0x00</on> <off>0x64</off> <maximum>0.1</maximum> <minimum>0.0</minimum> </output>
 			<output> <group>[Channel1]</group> <key>filterHighKill</key> <status>0x90</status> <midino>0x50</midino> <on>0x00</on> <off>0x64</off> <maximum>0.1</maximum> <minimum>0.0</minimum> </output>
-			<output> <group>[Channel2]</group> <key>filterLowKill</key> <status>0x90</status> <midino>0x55</midino> <on>0x00</on> <off>0x64</off> <maximum>0.1</maximum> <minimum>0.0</minimum> </output>
-			<output> <group>[Channel2]</group> <key>filterMidKill</key> <status>0x90</status> <midino>0x54</midino> <on>0x00</on> <off>0x64</off> <maximum>0.1</maximum> <minimum>0.0</minimum> </output>
+			<output> <group>[Channel2]</group> <key>filterLowKill</key>  <status>0x90</status> <midino>0x55</midino> <on>0x00</on> <off>0x64</off> <maximum>0.1</maximum> <minimum>0.0</minimum> </output>
+			<output> <group>[Channel2]</group> <key>filterMidKill</key>  <status>0x90</status> <midino>0x54</midino> <on>0x00</on> <off>0x64</off> <maximum>0.1</maximum> <minimum>0.0</minimum> </output>
 			<output> <group>[Channel2]</group> <key>filterHighKill</key> <status>0x90</status> <midino>0x53</midino> <on>0x00</on> <off>0x64</off> <maximum>0.1</maximum> <minimum>0.0</minimum> </output>
+		<!-- Loops -->
+			<output> <group>[Channel1]</group> <key>loop_enabled</key> <status>0x90</status> <midino>0x38</midino> <off>0x00</off> <on>0x64</on> <maximum>1.0</maximum> <minimum>0.1</minimum> </output>
+			<output> <group>[Channel1]</group> <key>loop_enabled</key> <status>0x90</status> <midino>0x39</midino> <off>0x00</off> <on>0x64</on> <maximum>1.0</maximum> <minimum>0.1</minimum> </output>
+			<output> <group>[Channel2]</group> <key>loop_enabled</key> <status>0x90</status> <midino>0x48</midino> <off>0x00</off> <on>0x64</on> <maximum>1.0</maximum> <minimum>0.1</minimum> </output>
+			<output> <group>[Channel2]</group> <key>loop_enabled</key> <status>0x90</status> <midino>0x49</midino> <off>0x00</off> <on>0x64</on> <maximum>1.0</maximum> <minimum>0.1</minimum> </output>
 		</outputs>
 	</controller>
 </MixxxMIDIPreset>
