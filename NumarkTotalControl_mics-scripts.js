@@ -137,7 +137,6 @@ NumarkTotalControl.playFromCue = function (channel, control, value, status, grou
 // Jog values:            064  127   -   001  063
 NumarkTotalControl.jogWheel = function(channel, control, value, status, group) {
 	var groupId = NumarkTotalControl.groupString(group);
-	var deck = NumarkTotalControl.groupToDeck(group);
 	var adjustedJog = parseFloat(value);
 	var posNeg = 1;
 	if (adjustedJog > 63) {	// Counter-clockwise
@@ -153,6 +152,8 @@ NumarkTotalControl.jogWheel = function(channel, control, value, status, group) {
 	
 	adjustedJog = gammaOutputRange * adjustedJog / (gammaInputRange * maxOutFraction);
 	
+	engine.setValue(group, "jog", 0.1);
+	/*
 	if (engine.getValue(group,"play")) {	// && !NumarkTotalControl.slipMode) {
 		//adjustedJog = gammaOutputRange * adjustedJog / (gammaInputRange * maxOutFraction);
 		NumarkTotalControl.jogWheelStopScratch(group);
@@ -167,16 +168,13 @@ NumarkTotalControl.jogWheel = function(channel, control, value, status, group) {
 		engine.setValue(group, "scratch2", adjustedJog);
 		NumarkTotalControl.scratchTimer[groupId] = engine.beginTimer(20, "NumarkTotalControl.jogWheelStopScratch('" + group + "')", true);
 	}
+	*/
 }
 
 NumarkTotalControl.jogWheelStopScratch = function(group) {
 	var groupId = NumarkTotalControl.groupString(group);
 	delete NumarkTotalControl.scratchTimer[groupId];
 	engine.setValue(group, "scratch2_enable", 0);
-}
-
-NumarkTotalControl.rateSlider = function(channel, control, value, status, group) {
-	engine.setValue(group, "rate", (value/64)-1 );
 }
 NumarkTotalControl.selectKnob = function(channel, control, value, status, group) {
 	if (value > 63) {
@@ -187,31 +185,6 @@ NumarkTotalControl.selectKnob = function(channel, control, value, status, group)
 
 NumarkTotalControl.loopOut = function(channel, control, value, status, group) {
 	if (value) {
-		//var start = engine.getValue(group, "loop_start_position");
-		//var end = engine.getValue(group, "loop_end_position");
-		if (engine.getValue(group, "loop_enabled")) {
-			// Loop In and Out set -> call Reloop/Exit
-			engine.setValue(group, "reloop_exit", 1);
-		} else {
-			engine.setValue(group, "loop_out", 1);
-		}
-	}
-}
-/*
-NumarkTotalControl.loopIn = function(channel, control, value, status, group) {
-	if (value) {
-		if (engine.getValue(group, "loop_enabled")) {
-			engine.setValue(group, "reloop_exit", 1);
-		}
-		engine.setValue(group, "loop_in", 1);
-		engine.setValue(group, "loop_end_position", -1);
-	}
-}
-*/
-NumarkTotalControl.loopOut = function(channel, control, value, status, group) {
-	if (value) {
-		//var start = engine.getValue(group, "loop_start_position");
-		//var end = engine.getValue(group, "loop_end_position");
 		if (engine.getValue(group, "loop_enabled")) {
 			// Loop In and Out set -> call Reloop/Exit
 			engine.setValue(group, "reloop_exit", 1);
@@ -239,15 +212,3 @@ NumarkTotalControl.toggleQuantize = function(channel, control, value, status, gr
 	}
 }
 
-/*
-NumarkTotalControl.slip = function(channel, control, value, status, group) {
-	// Toggle setting
-	if (value) {
-		engine.setValue("group", "slip_enabled", 1);
-		NumarkTotalControl.slipMode = true;
-	} else {
-		engine.setValue("group", "slip_enabled", 0);
-		NumarkTotalControl.slipMode = false;
-	}
-}
-*/

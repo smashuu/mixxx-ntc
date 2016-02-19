@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <MixxxMIDIPreset mixxxVersion="1.12.0" schemaVersion="1">
 	<info>
-		<name>Numark Total Control</name>
+		<name>Numark Total Control (experimental)</name>
 		<author>Matt Howell / David Gnedt</author>
 		<description>Experimental version for sampler/mic inputs</description>
 	</info>
-	<controller id="TotalTrack Control">
+	<controller id="Numark Total Control experimental">
 		<scriptfiles>
-			<file filename="Numark-Total-Control-scripts.js" functionprefix="NumarkTotalControl"/>
+			<file filename="NumarkTotalControl-scripts.js" functionprefix="NumarkTotalControl"/>
 		</scriptfiles>
 		<controls>
 		<!-- Sampler (left FX bank) -->
@@ -49,8 +49,8 @@
 		<!-- Jog and pitch controls -->
 			<control> <group>[Channel1]</group> <key>NumarkTotalControl.jogWheel</key>   <midino>0x19</midino> <status>0xb0</status> <options><script-binding/></options> </control>
 			<control> <group>[Channel2]</group> <key>NumarkTotalControl.jogWheel</key>   <midino>0x18</midino> <status>0xb0</status> <options><script-binding/></options> </control>
-			<control> <group>[Channel1]</group> <key>NumarkTotalControl.rateSlider</key> <midino>0x0b</midino> <status>0xb0</status> <options><script-binding/></options> </control>
-			<control> <group>[Channel2]</group> <key>NumarkTotalControl.rateSlider</key> <midino>0x0c</midino> <status>0xb0</status> <options><script-binding/></options> </control>
+			<control> <group>[Channel1]</group> <key>rate</key>  <midino>0x0b</midino> <status>0xb0</status> <options><Soft-takeover/></options> </control>
+			<control> <group>[Channel2]</group> <key>rate</key>  <midino>0x0c</midino> <status>0xb0</status> <options><Soft-takeover/></options> </control>
 		<!-- Volume, EQ, and PFL controls -->
 			<control> <group>[Master]</group>   <key>headVolume</key>     <midino>0x0f</midino> <status>0xb0</status> </control>
 			<control> <group>[Master]</group>   <key>headMix</key>        <midino>0x16</midino> <status>0xb0</status> </control>
