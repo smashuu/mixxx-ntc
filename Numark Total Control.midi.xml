@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <MixxxMIDIPreset mixxxVersion="1.12.0" schemaVersion="1">
 	<info>
-		<name>Numark Total Control (test)</name>
+		<name>Numark Total Control (test 3)</name>
 		<author>Matt Howell / David Gnedt</author>
 		<description>Experimental version for sampler/mic inputs</description>
 	</info>
@@ -20,11 +20,11 @@
 			<control> <group>[Sampler4]</group> <key>NumarkTotalControl.jogWheel</key>      <midino>0x03</midino> <status>0xb0</status> <options><script-binding/></options> </control>
 			<control> <group>[Sampler4]</group> <key>NumarkTotalControl.cuePlayRewind</key> <midino>0x3A</midino> <status>0x90</status> <options><script-binding/></options> </control>
 		<!-- Mics and aux (right FX bank) -->
-			<control> <group>[Microphone]</group>  <key>volume</key>   <midino>0x04</midino> <status>0xb0</status> <options><diff/></options> </control>
+			<control> <group>[Microphone]</group>  <key>pregain</key>   <midino>0x04</midino> <status>0xb0</status> <options><diff/></options> </control>
 			<control> <group>[Microphone]</group>  <key>talkover</key> <midino>0x35</midino> <status>0x90</status> </control>
-			<control> <group>[Microphone2]</group> <key>volume</key>   <midino>0x05</midino> <status>0xb0</status> <options><diff/></options> </control>
+			<control> <group>[Microphone2]</group> <key>pregain</key>   <midino>0x05</midino> <status>0xb0</status> <options><diff/></options> </control>
 			<control> <group>[Microphone2]</group> <key>talkover</key> <midino>0x36</midino> <status>0x90</status> </control>
-			<control> <group>[Microphone3]</group> <key>volume</key>   <midino>0x06</midino> <status>0xb0</status> <options><diff/></options> </control>
+			<control> <group>[Microphone3]</group> <key>pregain</key>   <midino>0x06</midino> <status>0xb0</status> <options><diff/></options> </control>
 			<control> <group>[Microphone3]</group> <key>talkover</key> <midino>0x3D</midino> <status>0x90</status> </control>
 		<!-- PFL/Key/Sync -->	
 			<control> <group>[Channel1]</group> <key>pfl</key>      <midino>0x30</midino> <status>0x90</status> </control>

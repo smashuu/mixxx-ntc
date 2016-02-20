@@ -3,8 +3,6 @@ function NumarkTotalControl() {}
 NumarkTotalControl.init = function(id) {	// called when the MIDI device is opened & set up
 	NumarkTotalControl.id = id;	// Store the ID of this device for later use
 
-//	NumarkTotalControl.scratchMode = false;
-//	NumarkTotalControl.slipMode = false;
 	NumarkTotalControl.scratchTimer = {};
 	
 	NumarkTotalControl.quantizeLEDState = false;
@@ -20,19 +18,12 @@ NumarkTotalControl.init = function(id) {	// called when the MIDI device is opene
 		// Deck 2
 		{ "rate": 0x43, "tap": 0x47, "loopIn": 0x4a, "loopOut": 0x4b, "loopHalve": 0x48, "loopDouble": 0x49, "play":0x4e }
 	];
-	
-	// Soft takeovers
-	engine.softTakeover("[Channel1]", "rate", true);
-	engine.softTakeover("[Channel2]", "rate", true);
 
 	// Sampler lights
 	engine.trigger("[Sampler1]", "cue_set");
 	engine.trigger("[Sampler2]", "cue_set");
 	engine.trigger("[Sampler3]", "cue_set");
 	engine.trigger("[Sampler4]", "cue_set");
-	
-	//engine.connectControl("[Channel1]", "loop_enabled", "NumarkTotalControl.loopLEDs");
-	//engine.connectControl("[Channel2]", "loop_enabled", "NumarkTotalControl.loopLEDs");
 	
 	engine.connectControl("[Channel1]", "quantize", "NumarkTotalControl.quantizeLED");
 	engine.connectControl("[Channel2]", "quantize", "NumarkTotalControl.quantizeLED");
@@ -152,8 +143,6 @@ NumarkTotalControl.jogWheel = function(channel, control, value, status, group) {
 	
 	adjustedJog = gammaOutputRange * adjustedJog / (gammaInputRange * maxOutFraction);
 	
-	engine.setValue(group, "jog", 0.1);
-	/*
 	if (engine.getValue(group,"play")) {	// && !NumarkTotalControl.slipMode) {
 		//adjustedJog = gammaOutputRange * adjustedJog / (gammaInputRange * maxOutFraction);
 		NumarkTotalControl.jogWheelStopScratch(group);
@@ -168,7 +157,6 @@ NumarkTotalControl.jogWheel = function(channel, control, value, status, group) {
 		engine.setValue(group, "scratch2", adjustedJog);
 		NumarkTotalControl.scratchTimer[groupId] = engine.beginTimer(20, "NumarkTotalControl.jogWheelStopScratch('" + group + "')", true);
 	}
-	*/
 }
 
 NumarkTotalControl.jogWheelStopScratch = function(group) {
