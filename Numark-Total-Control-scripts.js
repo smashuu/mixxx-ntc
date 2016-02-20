@@ -4,6 +4,7 @@ NumarkTotalControl.init = function(id) {	// called when the MIDI device is opene
 	NumarkTotalControl.id = id;	// Store the ID of this device for later use
 
 	NumarkTotalControl.scratchTimer = {};
+	NumarkTotalControl.playTimer = {};
 	
 	NumarkTotalControl.quantizeLEDState = false;
 	NumarkTotalControl.quantizeLEDTimer = -1;
@@ -98,7 +99,8 @@ NumarkTotalControl.quantizeLEDBlink = function() {
 NumarkTotalControl.play = function (channel, control, value, status, group) {
 	var deck = NumarkTotalControl.groupToDeck(group);
 	var groupId = NumarkTotalControl.groupString(group);
-	if (value) {
+	if (value && NumarkTotalControl.playTimer[groupId] === undefined) {
+		NumarkTotalControl.playTimer[groupId] = engine.beginTimer(250, "delete NumarkTotalControl.playTimer['"+groupId+"'];", true);	// Fix for my sticky play button
 		if (NumarkTotalControl.cueing[groupId] !== undefined) {
 			delete NumarkTotalControl.cueing[groupId];
 			engine.setValue(group, "play", 1);
@@ -143,12 +145,10 @@ NumarkTotalControl.jogWheel = function(channel, control, value, status, group) {
 	
 	adjustedJog = gammaOutputRange * adjustedJog / (gammaInputRange * maxOutFraction);
 	
-	if (engine.getValue(group,"play")) {	// && !NumarkTotalControl.slipMode) {
-		//adjustedJog = gammaOutputRange * adjustedJog / (gammaInputRange * maxOutFraction);
+	if (engine.getValue(group,"play")) {
 		NumarkTotalControl.jogWheelStopScratch(group);
 		engine.setValue(group, "jog", adjustedJog);
 	} else {
-		//adjustedJog = posNeg * gammaOutputRange * Math.pow(Math.abs(adjustedJog) / (gammaInputRange * maxOutFraction), sensitivity);
 		if (NumarkTotalControl.scratchTimer[groupId] === undefined) {
 			engine.setValue(group, "scratch2_enable", 1);
 		} else {
@@ -199,4 +199,3 @@ NumarkTotalControl.toggleQuantize = function(channel, control, value, status, gr
 		engine.setValue("[Channel2]", "quantize", newValue);
 	}
 }
-
