@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <MixxxMIDIPreset mixxxVersion="1.12.0" schemaVersion="1">
 	<info>
-		<name>Numark Total Control (experimental)</name>
+		<name>Numark Total Control (test)</name>
 		<author>Matt Howell / David Gnedt</author>
 		<description>Experimental version for sampler/mic inputs</description>
 	</info>
-	<controller id="Numark Total Control experimental">
+	<controller id="Numark Total Control test">
 		<scriptfiles>
-			<file filename="NumarkTotalControl-scripts.js" functionprefix="NumarkTotalControl"/>
+			<file filename="Numark-Total-Control-scripts.js" functionprefix="NumarkTotalControl"/>
 		</scriptfiles>
 		<controls>
 		<!-- Sampler (left FX bank) -->
