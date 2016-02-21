@@ -19,27 +19,12 @@ NumarkTotalControl.init = function(id) {	// called when the MIDI device is opene
 		// Deck 2
 		{ "rate": 0x43, "tap": 0x47, "loopIn": 0x4a, "loopOut": 0x4b, "loopHalve": 0x48, "loopDouble": 0x49, "play":0x4e }
 	];
-
-	// Sampler lights
-	engine.trigger("[Sampler1]", "cue_set");
-	engine.trigger("[Sampler2]", "cue_set");
-	engine.trigger("[Sampler3]", "cue_set");
-	engine.trigger("[Sampler4]", "cue_set");
 	
 	engine.connectControl("[Channel1]", "quantize", "NumarkTotalControl.quantizeLED");
 	engine.connectControl("[Channel2]", "quantize", "NumarkTotalControl.quantizeLED");
 }
 
 NumarkTotalControl.shutdown = function(id) {	// called when the MIDI device is closed
-	//engine.connectControl("[Channel1]", "loop_enabled", "NumarkTotalControl.loopLEDs", true);
-	//engine.connectControl("[Channel2]", "loop_enabled", "NumarkTotalControl.loopLEDs", true);
-
-	// Sampler "scratch"
-	//engine.setValue("[Sampler1]", "scratch2_enable", 0);
-	//engine.setValue("[Sampler2]", "scratch2_enable", 0);
-	//engine.setValue("[Sampler3]", "scratch2_enable", 0);
-	//engine.setValue("[Sampler4]", "scratch2_enable", 0);
-	
 	var lowestLED = 0x30;
 	var highestLED = 0x56;
 	for (var i=lowestLED; i<=highestLED; i++) {
