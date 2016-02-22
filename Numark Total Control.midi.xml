@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <MixxxMIDIPreset mixxxVersion="1.12.0" schemaVersion="1">
 	<info>
-		<name>Numark Total Control (test 23)</name>
+		<name>Numark Total Control (test 25)</name>
 		<author>Matt Howell / David Gnedt</author>
 		<description>Experimental version for mics and aux inputs</description>
 	</info>

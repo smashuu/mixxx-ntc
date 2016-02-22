@@ -126,8 +126,7 @@ NumarkTotalControl.jogWheel = function(channel, control, value, status, group) {
 	var gammaInputRange = 64;	// Max jog speed
 	var maxOutFraction = 0.5;	// Where on the curve it should peak; 0.5 is half-way
 	var sensitivity = 0.5;		// Adjustment gamma
-	var gammaOutputRange = 3;	// Max rate change
-	
+	var gammaOutputRange = (groupId.substr(0,7) === "Sampler") ? 15 : 3;	// Max rate change
 	adjustedJog = gammaOutputRange * adjustedJog / (gammaInputRange * maxOutFraction);
 	
 	if (engine.getValue(group,"play")) {
