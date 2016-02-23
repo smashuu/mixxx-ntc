@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <MixxxMIDIPreset mixxxVersion="1.12.0" schemaVersion="1">
 	<info>
-		<name>Numark Total Control (test 25)</name>
+		<name>Numark Total Control (test 26)</name>
 		<author>Matt Howell / David Gnedt</author>
 		<description>Experimental version for mics and aux inputs</description>
 	</info>
@@ -19,16 +19,16 @@
 			<control> <group>[Microphone3]</group> <key>talkover</key> <midino>0x39</midino> <status>0x90</status> </control>
 			<!-- control> <group>[Sampler4]</group> <key>NumarkTotalControl.jogWheel</key>      <midino>0x03</midino> <status>0xb0</status> <options><script-binding/></options> </control -->
 			<!-- control> <group>[Sampler4]</group> <key>NumarkTotalControl.cuePlayRewind</key> <midino>0x3A</midino> <status>0x90</status> <options><script-binding/></options> </control -->
-		<!-- Aux (right upper FX bank) -->
-			<control> <group>[Auxiliary1]</group>  <key>pregain</key>   <midino>0x04</midino> <status>0xb0</status> <options><diff/></options> </control>
-			<control> <group>[Auxiliary1]</group>  <key>mute</key> <midino>0x35</midino> <status>0x90</status> </control>
-			<control> <group>[Auxiliary2]</group> <key>pregain</key>   <midino>0x05</midino> <status>0xb0</status> <options><diff/></options> </control>
-			<control> <group>[Auxiliary2]</group> <key>mute</key> <midino>0x36</midino> <status>0x90</status> </control>
-		<!-- Sampler (right lower FX bank) -->
-			<control> <group>[Sampler1]</group> <key>NumarkTotalControl.jogWheel</key>   <midino>0x06</midino> <status>0xb0</status> <options><script-binding/></options> </control>
-			<control> <group>[Sampler1]</group> <key>NumarkTotalControl.cuePlayRewind</key> <midino>0x3D</midino> <status>0x90</status> <options><script-binding/></options> </control>
-			<control> <group>[Sampler2]</group> <key>NumarkTotalControl.jogWheel</key>   <midino>0x07</midino> <status>0xb0</status> <options><script-binding/></options> </control>
-			<control> <group>[Sampler2]</group> <key>NumarkTotalControl.cuePlayRewind</key> <midino>0x3E</midino> <status>0x90</status> <options><script-binding/></options> </control>
+		<!-- Sampler (right upper FX bank) -->
+			<control> <group>[Sampler1]</group> <key>NumarkTotalControl.jogWheel</key>      <midino>0x04</midino> <status>0xb0</status> <options><script-binding/></options> </control>
+			<control> <group>[Sampler1]</group> <key>NumarkTotalControl.cuePlayRewind</key> <midino>0x35</midino> <status>0x90</status> <options><script-binding/></options> </control>
+			<control> <group>[Sampler2]</group> <key>NumarkTotalControl.jogWheel</key>      <midino>0x05</midino> <status>0xb0</status> <options><script-binding/></options> </control>
+			<control> <group>[Sampler2]</group> <key>NumarkTotalControl.cuePlayRewind</key> <midino>0x36</midino> <status>0x90</status> <options><script-binding/></options> </control>
+		<!-- Aux (right lower FX bank) -->
+			<control> <group>[Auxiliary1]</group> <key>pregain</key>   <midino>0x06</midino> <status>0xb0</status> <options><diff/></options> </control>
+			<control> <group>[Auxiliary1]</group> <key>pfl</key>       <midino>0x3D</midino> <status>0x90</status> </control>
+			<control> <group>[Auxiliary2]</group> <key>pregain</key>   <midino>0x07</midino> <status>0xb0</status> <options><diff/></options> </control>
+			<control> <group>[Auxiliary2]</group> <key>pfl</key>       <midino>0x3E</midino> <status>0x90</status> </control>
 		<!-- PFL/Key/Sync -->	
 			<control> <group>[Channel1]</group> <key>pfl</key>      <midino>0x30</midino> <status>0x90</status> </control>
 			<control> <group>[Channel2]</group> <key>pfl</key>      <midino>0x37</midino> <status>0x90</status> </control>
@@ -99,12 +99,12 @@
 			<output> <group>[Microphone2]</group> <key>talkover</key> <status>0x90</status> <midino>0x31</midino> <on>0x64</on> <off>0x00</off> <maximum>1.0</maximum> <minimum>0.1</minimum> </output>
 			<output> <group>[Microphone3]</group> <key>talkover</key> <status>0x90</status> <midino>0x32</midino> <on>0x64</on> <off>0x00</off> <maximum>1.0</maximum> <minimum>0.1</minimum> </output>
 			<!-- output> <group>[Sampler4]</group> <key>play</key> <status>0x90</status> <midino>0x30</midino> <on>0x00</on> <off>0x64</off> <maximum>1.0</maximum> <minimum>0.0</minimum> </output -->
-		<!-- Aux (right upper FX bank) -->
-			<output> <group>[Auxiliary1]</group> <key>mute</key> <status>0x90</status> <midino>0x44</midino> <on>0x64</on> <off>0x00</off> <maximum>1.0</maximum> <minimum>0.1</minimum> </output>
-			<output> <group>[Auxiliary2]</group> <key>mute</key> <status>0x90</status> <midino>0x45</midino> <on>0x64</on> <off>0x00</off> <maximum>1.0</maximum> <minimum>0.1</minimum> </output>
-		<!-- Sampler (right lower FX bank) -->
-			<output> <group>[Sampler1]</group> <key>play</key> <status>0x90</status> <midino>0x46</midino> <on>0x64</on> <off>0x00</off> <maximum>1.0</maximum> <minimum>0.1</minimum> </output>
-			<output> <group>[Sampler2]</group> <key>play</key> <status>0x90</status> <midino>0x47</midino> <on>0x64</on> <off>0x00</off> <maximum>1.0</maximum> <minimum>0.1</minimum> </output>
+		<!-- Sampler (right upper FX bank) -->
+			<output> <group>[Sampler1]</group> <key>play</key> <status>0x90</status> <midino>0x44</midino> <on>0x64</on> <off>0x00</off> <maximum>1.0</maximum> <minimum>0.1</minimum> </output>
+			<output> <group>[Sampler2]</group> <key>play</key> <status>0x90</status> <midino>0x45</midino> <on>0x64</on> <off>0x00</off> <maximum>1.0</maximum> <minimum>0.1</minimum> </output>
+		<!-- Aux (right lower FX bank) -->
+			<output> <group>[Auxiliary1]</group> <key>pfl</key> <status>0x90</status> <midino>0x46</midino> <on>0x64</on> <off>0x00</off> <maximum>1.0</maximum> <minimum>0.1</minimum> </output>
+			<output> <group>[Auxiliary2]</group> <key>pfl</key> <status>0x90</status> <midino>0x47</midino> <on>0x64</on> <off>0x00</off> <maximum>1.0</maximum> <minimum>0.1</minimum> </output>
 		<!-- Playlist and loading -->
 			<output> <group>[Channel1]</group> <key>playposition</key> <status>0x90</status> <midino>0x3f</midino> <on>0x64</on> <off>0x00</off> <maximum>1.0</maximum> <minimum>0.75</minimum> </output>
 			<output> <group>[Channel2]</group> <key>playposition</key> <status>0x90</status> <midino>0x4f</midino> <on>0x64</on> <off>0x00</off> <maximum>1.0</maximum> <minimum>0.75</minimum> </output>
