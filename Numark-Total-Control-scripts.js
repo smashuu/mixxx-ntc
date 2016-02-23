@@ -168,7 +168,8 @@ NumarkTotalControl.loopOut = function(channel, control, value, status, group) {
 
 NumarkTotalControl.cuePlayRewind = function(channel, control, value, status, group) {
 	if (value) {
-		engine.setValue(group, "cue_default", 1);
+		engine.setValue(group, "cue_set", 1);
+		engine.setValue(group, "play", 1);
 	} else {
 		engine.setValue(group, "play", 0);
 		engine.setValue(group, "cue_gotoandstop", 1);
