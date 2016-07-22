@@ -17,8 +17,8 @@
 			<control> <group>[Microphone2]</group> <key>talkover</key> <midino>0x32</midino> <status>0x90</status> </control>
 			<control> <group>[Microphone3]</group> <key>pregain</key>  <midino>0x02</midino> <status>0xb0</status> <options><diff/></options> </control>
 			<control> <group>[Microphone3]</group> <key>talkover</key> <midino>0x39</midino> <status>0x90</status> </control>
-			<!-- control> <group>[Sampler4]</group> <key>NumarkTotalControl.jogWheel</key>      <midino>0x03</midino> <status>0xb0</status> <options><script-binding/></options> </control -->
-			<!-- control> <group>[Sampler4]</group> <key>NumarkTotalControl.cuePlayRewind</key> <midino>0x3A</midino> <status>0x90</status> <options><script-binding/></options> </control -->
+			<!-- control> <group>[Unused]</group> <key>unused</key>    <midino>0x03</midino> <status>0xb0</status> <options><diff/></options> </control -->
+			<!-- control> <group>[Unused]</group> <key>unused</key>    <midino>0x3A</midino> <status>0x90</status> </control -->
 		<!-- Sampler (right upper FX bank) -->
 			<control> <group>[Sampler1]</group> <key>NumarkTotalControl.jogWheel</key>      <midino>0x04</midino> <status>0xb0</status> <options><script-binding/></options> </control>
 			<control> <group>[Sampler1]</group> <key>NumarkTotalControl.cuePlayRewind</key> <midino>0x35</midino> <status>0x90</status> <options><script-binding/></options> </control>
@@ -98,7 +98,7 @@
 			<output> <group>[Microphone]</group>  <key>talkover</key> <status>0x90</status> <midino>0x33</midino> <on>0x64</on> <off>0x00</off> <maximum>1.0</maximum> <minimum>0.1</minimum> </output>
 			<output> <group>[Microphone2]</group> <key>talkover</key> <status>0x90</status> <midino>0x31</midino> <on>0x64</on> <off>0x00</off> <maximum>1.0</maximum> <minimum>0.1</minimum> </output>
 			<output> <group>[Microphone3]</group> <key>talkover</key> <status>0x90</status> <midino>0x32</midino> <on>0x64</on> <off>0x00</off> <maximum>1.0</maximum> <minimum>0.1</minimum> </output>
-			<!-- output> <group>[Sampler4]</group> <key>play</key> <status>0x90</status> <midino>0x30</midino> <on>0x00</on> <off>0x64</off> <maximum>1.0</maximum> <minimum>0.0</minimum> </output -->
+			<!-- output> <group>[Unused]</group>  <key>unused</key>   <status>0x90</status> <midino>0x30</midino> <on>0x00</on> <off>0x64</off> <maximum>1.0</maximum> <minimum>0.0</minimum> </output -->
 		<!-- Sampler (right upper FX bank) -->
 			<output> <group>[Sampler1]</group> <key>play</key> <status>0x90</status> <midino>0x44</midino> <on>0x64</on> <off>0x00</off> <maximum>1.0</maximum> <minimum>0.1</minimum> </output>
 			<output> <group>[Sampler2]</group> <key>play</key> <status>0x90</status> <midino>0x45</midino> <on>0x64</on> <off>0x00</off> <maximum>1.0</maximum> <minimum>0.1</minimum> </output>
